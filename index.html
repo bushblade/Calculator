@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css">
+  <link rel="stylesheet" href="style.css">
+  <title>Calculator</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="columns is-mobile">
+      <div class="column is-12">
+        <div class="box is-size-2">
+          <span id="output"></span>
+        </div>
+      </div>
+    </div>
+    <div class="columns is-mobile">
+      <div class="column is-3">
+        <button class="button is-fullwidth is-large is-primary">7</button>
+      </div>
+      <div class="column is-3">
+        <button class="button is-fullwidth is-large is-primary">8</button>
+      </div>
+      <div class="column is-3">
+        <button class="button is-fullwidth is-large is-primary">9</button>
+      </div>
+      <div class="column is-3">
+        <button class="button is-fullwidth is-large is-info">/</button>
+      </div>
+    </div>
+    <div class="columns is-mobile">
+      <div class="column is-3">
+        <button class="button is-fullwidth is-large is-primary">4</button>
+      </div>
+      <div class="column is-3">
+        <button class="button is-fullwidth is-large is-primary">5</button>
+      </div>
+      <div class="column is-3">
+        <button class="button is-fullwidth is-large is-primary">6</button>
+      </div>
+      <div class="column is-3">
+        <button class="button is-fullwidth is-large is-info">*</button>
+      </div>
+    </div>
+    <div class="columns is-mobile">
+      <div class="column is-3">
+        <button class="button is-fullwidth is-large is-primary">1</button>
+      </div>
+      <div class="column is-3">
+        <button class="button is-fullwidth is-large is-primary">2</button>
+      </div>
+      <div class="column is-3">
+        <button class="button is-fullwidth is-large is-primary">3</button>
+      </div>
+      <div class="column is-3">
+        <button class="button is-fullwidth is-large is-info">-</button>
+      </div>
+    </div>
+    <div class="columns is-mobile">
+      <div class="column is-3">
+        <button class="button is-fullwidth is-large is-warning" id="clear">AC</button>
+      </div>
+      <div class="column is-3">
+        <button class="button is-fullwidth is-large is-primary">0</button>
+      </div>
+      <div class="column is-3">
+        <button class="button is-fullwidth is-large is-info">.</button>
+      </div>
+      <div class="column is-3">
+        <button class="button is-fullwidth is-large is-info">+</button>
+      </div>
+    </div>
+    <div class="columns is-mobile">
+      <div class="column is-12">
+        <button class="button is-fullwidth is-large is-success" id="calculate">=</button>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,7 @@
+.container {
+  max-width: 500px;
+  margin-top: 5rem;
+}
+.box {
+  min-height: 100px;
+}
