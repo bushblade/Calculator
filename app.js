@@ -1,5 +1,5 @@
 const output = document.getElementById("output");
-const container = document.querySelector(".container");
+const container = document.getElementById("calc-wrapper");
 const calculate = document.getElementById("calculate");
 const clear = document.getElementById("clear");
 const operators = ["/", "*", "-", "+", "."];
