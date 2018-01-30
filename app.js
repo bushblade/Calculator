@@ -2,14 +2,17 @@ const output = document.getElementById("output");
 const container = document.getElementById("calc-wrapper");
 const calculate = document.getElementById("calculate");
 const clear = document.getElementById("clear");
+const allBtns = document.querySelectorAll('.button');
+const backBtn = document.getElementById('back');
+
 const operators = Array.from(document.querySelectorAll('.is-info')).map(x => x.textContent);
 const keyArray = [111, 106, 109, 103, 104, 105, 107, 100, 101, 102, 97, 98, 99, 96, 110];
-const allBtns = document.querySelectorAll('.button');
 
 container.addEventListener("click", buttonClick);
 calculate.addEventListener("click", calc);
 clear.addEventListener("click", reset);
 document.addEventListener("keydown", keyPress);
+backBtn.addEventListener('click', back);
 
 function buttonClick(e) {
   let btnText = e.target.textContent;
@@ -35,7 +38,8 @@ function keyPress(e) {
     calculate.focus();
     calc();
   } else if (e.keyCode === 8) {
-    output.textContent = output.textContent.slice(0, -1);
+    backBtn.focus();
+    back();
   } else if (e.keyCode === 27) {
     clear.focus();
     reset();
@@ -48,4 +52,8 @@ function reset() {
 
 function calc() {
   output.textContent = eval(output.textContent);
+}
+
+function back() {
+  output.textContent = output.textContent.slice(0, -1);
 }
