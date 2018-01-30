@@ -4,6 +4,7 @@ const calculate = document.getElementById("calculate");
 const clear = document.getElementById("clear");
 const operators = Array.from(document.querySelectorAll('.is-info')).map(x => x.textContent);
 const keyArray = [111, 106, 109, 103, 104, 105, 107, 100, 101, 102, 97, 98, 99, 96, 110];
+const allBtns = document.querySelectorAll('.button');
 
 container.addEventListener("click", buttonClick);
 calculate.addEventListener("click", calc);
@@ -24,16 +25,19 @@ function keyPress(e) {
   let keyText = e.key;
   let lastChar = output.textContent[output.textContent.length - 1];
   if (keyArray.includes(e.keyCode)) {
+    allBtns.forEach(x => keyText === x.textContent ? x.focus() : false)
     if (!operators.includes(keyText)) {
       output.textContent += keyText;
     } else if (!operators.includes(lastChar) && output.textContent !== '') {
       output.textContent += keyText;
     }
   } else if (e.keyCode === 13) {
+    calculate.focus();
     calc();
   } else if (e.keyCode === 8) {
     output.textContent = output.textContent.slice(0, -1);
   } else if (e.keyCode === 27) {
+    clear.focus();
     reset();
   }
 }
