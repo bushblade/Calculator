@@ -52,7 +52,7 @@ function reset() {
 
 function calc() {
   let result = eval(output.textContent);
-  result.length > 8 ? output.textContent = result.toFixed(8) : output.textContent = result;
+  String(result).length > 8 ? output.textContent = result.toFixed(8) : output.textContent = result;
 }
 
 function back() {
