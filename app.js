@@ -31,6 +31,10 @@ function keyPress(e) {
     }
   } else if (e.keyCode === 13) {
     calc();
+  } else if (e.keyCode === 8) {
+    output.textContent = output.textContent.slice(0, -1);
+  } else if (e.keyCode === 27) {
+    reset();
   }
 }
 
