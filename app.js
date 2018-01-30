@@ -51,7 +51,8 @@ function reset() {
 }
 
 function calc() {
-  output.textContent = eval(output.textContent);
+  let result = eval(output.textContent);
+  result.length > 8 ? output.textContent = result.toFixed(8) : output.textContent = result;
 }
 
 function back() {
