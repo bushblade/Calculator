@@ -2,10 +2,17 @@ html {
   background-color: #363636;
 }
 
-.container {
-  max-width: 500px;
-  margin-top: 5rem;
+@media (min-width: 500px) {
+  .container {
+    max-width: 500px;
+    margin-top: 5rem;
+  }
 }
 .box {
   min-height: 100px;
+}
+
+.columns {
+  margin-left: 0;
+  margin-right: 0;
 }
