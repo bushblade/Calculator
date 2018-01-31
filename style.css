@@ -8,8 +8,9 @@ html {
     margin-top: 3rem;
   }
 }
+
 .box {
-  min-height: 90px;
+  min-height: 6.5rem;
   overflow-wrap: break-word;
 }
 
@@ -20,4 +21,8 @@ html {
 
 .hero {
   border-radius: 0.5rem;
+}
+
+.hero-body {
+  padding: 2rem 1rem;
 }
