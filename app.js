@@ -5,7 +5,7 @@ const clear = document.getElementById("clear");
 const allBtns = document.querySelectorAll('.button');
 const backBtn = document.getElementById('back');
 
-const operators = Array.from(document.querySelectorAll('.is-info')).map(x => x.textContent);
+const operators = ['/', '*', '+'];
 const keyArray = [111, 106, 109, 103, 104, 105, 107, 100, 101, 102, 97, 98, 99, 96, 110];
 
 container.addEventListener("click", buttonClick);
@@ -14,21 +14,27 @@ clear.addEventListener("click", reset);
 document.addEventListener("keydown", keyPress);
 backBtn.addEventListener('click', back);
 
+const getLastChar = () => output.textContent[output.textContent.length - 1];
+
 function buttonClick(e) {
   let btnText = e.target.textContent;
-  let lastChar = output.textContent[output.textContent.length - 1];
+  let lastChar = getLastChar();
   if (e.target.classList.contains("is-primary")) {
-    output.textContent += btnText;
+    !operators.includes(btnText) ? output.textContent += btnText : false;
   } else if (e.target.classList.contains("is-info")) {
-    !operators.includes(lastChar) && output.textContent !== '' ? output.textContent += btnText : false;
+    if (!operators.includes(lastChar) && !operators.includes(btnText)) {
+      output.textContent += btnText;
+    } else if (!operators.includes(lastChar) && output.textContent !== '') {
+      output.textContent += btnText;
+    }
   }
 }
 
 function keyPress(e) {
   let keyText = e.key;
-  let lastChar = output.textContent[output.textContent.length - 1];
+  let lastChar = getLastChar();
   if (keyArray.includes(e.keyCode)) {
-    allBtns.forEach(x => keyText === x.textContent ? x.focus() : false)
+    allBtns.forEach(x => keyText === x.textContent ? x.focus() : false);
     if (!operators.includes(keyText)) {
       output.textContent += keyText;
     } else if (!operators.includes(lastChar) && output.textContent !== '') {
@@ -51,8 +57,15 @@ function reset() {
 }
 
 function calc() {
-  let result = Number(eval(output.textContent).toFixed(8));
-  output.textContent = `${result}`;
+  if (output.textContent.length > 0) {
+    try {
+      output.textContent = `${Number(eval(output.textContent).toFixed(8))}`;
+    } catch (err) {
+      alert(err);
+    }
+  } else {
+    alert('Nothing entered');
+  }
 }
 
 function back() {
