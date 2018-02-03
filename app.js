@@ -14,31 +14,43 @@ clear.addEventListener("click", reset);
 document.addEventListener("keydown", keyPress);
 backBtn.addEventListener('click', back);
 
-const getLastChar = () => output.textContent[output.textContent.length - 1];
+function getLastChar() {
+  return output.textContent[output.textContent.length - 1];
+}
+
+function checkLastChar(lastChar, text) {
+  !operators.includes(lastChar) && output.textContent !== '' ? output.textContent += text : false;
+}
+
+function reset() {
+  output.innerText = "";
+}
+
+function back() {
+  output.textContent = output.textContent.slice(0, -1);
+}
 
 function buttonClick(e) {
   let btnText = e.target.textContent;
-  let lastChar = getLastChar();
   if (e.target.classList.contains("is-primary")) {
     !operators.includes(btnText) ? output.textContent += btnText : false;
   } else if (e.target.classList.contains("is-info")) {
-    if (!operators.includes(lastChar) && !operators.includes(btnText)) {
+    if (!operators.includes(getLastChar()) && !operators.includes(btnText)) {
       output.textContent += btnText;
-    } else if (!operators.includes(lastChar) && output.textContent !== '') {
-      output.textContent += btnText;
+    } else {
+      checkLastChar(getLastChar(), btnText);
     }
   }
 }
 
 function keyPress(e) {
   let keyText = e.key;
-  let lastChar = getLastChar();
   if (keyArray.includes(e.keyCode)) {
     allBtns.forEach(x => keyText === x.textContent ? x.focus() : false);
     if (!operators.includes(keyText)) {
       output.textContent += keyText;
-    } else if (!operators.includes(lastChar) && output.textContent !== '') {
-      output.textContent += keyText;
+    } else {
+      checkLastChar(getLastChar(), keyText);
     }
   } else if (e.keyCode === 13) {
     calculate.focus();
@@ -52,10 +64,6 @@ function keyPress(e) {
   }
 }
 
-function reset() {
-  output.innerText = "";
-}
-
 function calc() {
   if (output.textContent.length > 0) {
     try {
@@ -66,8 +74,4 @@ function calc() {
   } else {
     alert('Nothing entered');
   }
-}
-
-function back() {
-  output.textContent = output.textContent.slice(0, -1);
 }
