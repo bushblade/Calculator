@@ -8,7 +8,8 @@ const output = document.getElementById("output"),
   keyArray = [111, 106, 109, 103, 104, 105, 107, 100, 101, 102, 97, 98, 99, 96, 110],
   reset = () => output.textContent = "",
   back = () => output.textContent = output.textContent.slice(0, -1),
-  checkLastChar = x => !operators.includes(output.textContent.substr(-1)) && output.textContent !== '' ? output.textContent += x : false;
+  checkLastChar = x => !operators.includes(output.textContent.substr(-1)) && output.textContent !== '' ? writeToOutput(x) : false,
+  writeToOutput = x => output.textContent += x;
 
 container.addEventListener("click", buttonClick);
 calculate.addEventListener("click", calc);
@@ -19,9 +20,9 @@ backBtn.addEventListener('click', () => back());
 function buttonClick(e) {
   let btnText = e.target.textContent;
   if (e.target.classList.contains("is-primary")) {
-    !operators.includes(btnText) ? output.textContent += btnText : false;
+    !operators.includes(btnText) ? writeToOutput(btnText) : false;
   } else if (e.target.classList.contains("is-info")) {
-    !operators.includes(btnText) ? output.textContent += btnText : checkLastChar(btnText);
+    !operators.includes(btnText) ? writeToOutput(btnText) : checkLastChar(btnText);
   }
 }
 
@@ -29,7 +30,7 @@ function keyPress(e) {
   let keyText = e.key;
   if (keyArray.includes(e.keyCode)) {
     allBtns.forEach(x => keyText === x.textContent ? x.focus() : false);
-    !operators.includes(keyText) ? output.textContent += keyText : checkLastChar(keyText);
+    !operators.includes(keyText) ? writeToOutput(keyText) : checkLastChar(keyText);
   } else if (e.keyCode === 13) {
     calculate.focus();
     calc();
