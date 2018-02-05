@@ -14,12 +14,8 @@ clear.addEventListener("click", reset);
 document.addEventListener("keydown", keyPress);
 backBtn.addEventListener('click', back);
 
-function getLastChar() {
-  return output.textContent[output.textContent.length - 1];
-}
-
-function checkLastChar(lastChar, text) {
-  !operators.includes(lastChar) && output.textContent !== '' ? output.textContent += text : false;
+function checkLastChar(text) {
+  !operators.includes(output.textContent.substr(-1)) && output.textContent !== '' ? output.textContent += text : false;
 }
 
 function reset() {
@@ -35,11 +31,7 @@ function buttonClick(e) {
   if (e.target.classList.contains("is-primary")) {
     !operators.includes(btnText) ? output.textContent += btnText : false;
   } else if (e.target.classList.contains("is-info")) {
-    if (!operators.includes(getLastChar()) && !operators.includes(btnText)) {
-      output.textContent += btnText;
-    } else {
-      checkLastChar(getLastChar(), btnText);
-    }
+    !operators.includes(btnText) ? output.textContent += btnText : checkLastChar(btnText);
   }
 }
 
@@ -47,11 +39,7 @@ function keyPress(e) {
   let keyText = e.key;
   if (keyArray.includes(e.keyCode)) {
     allBtns.forEach(x => keyText === x.textContent ? x.focus() : false);
-    if (!operators.includes(keyText)) {
-      output.textContent += keyText;
-    } else {
-      checkLastChar(getLastChar(), keyText);
-    }
+    !operators.includes(keyText) ? output.textContent += keyText : checkLastChar(keyText);
   } else if (e.keyCode === 13) {
     calculate.focus();
     calc();
