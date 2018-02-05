@@ -1,12 +1,11 @@
-const output = document.getElementById("output");
-const container = document.getElementById("calc-wrapper");
-const calculate = document.getElementById("calculate");
-const clear = document.getElementById("clear");
-const allBtns = document.querySelectorAll('.button');
-const backBtn = document.getElementById('back');
-
-const operators = ['/', '*', '+'];
-const keyArray = [111, 106, 109, 103, 104, 105, 107, 100, 101, 102, 97, 98, 99, 96, 110];
+const output = document.getElementById("output"),
+  container = document.getElementById("calc-wrapper"),
+  calculate = document.getElementById("calculate"),
+  clear = document.getElementById("clear"),
+  allBtns = document.querySelectorAll('.button'),
+  backBtn = document.getElementById('back'),
+  operators = ['/', '*', '+'],
+  keyArray = [111, 106, 109, 103, 104, 105, 107, 100, 101, 102, 97, 98, 99, 96, 110];
 
 container.addEventListener("click", buttonClick);
 calculate.addEventListener("click", calc);
