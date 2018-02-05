@@ -5,25 +5,16 @@ const output = document.getElementById("output"),
   allBtns = document.querySelectorAll('.button'),
   backBtn = document.getElementById('back'),
   operators = ['/', '*', '+'],
-  keyArray = [111, 106, 109, 103, 104, 105, 107, 100, 101, 102, 97, 98, 99, 96, 110];
+  keyArray = [111, 106, 109, 103, 104, 105, 107, 100, 101, 102, 97, 98, 99, 96, 110],
+  reset = () => output.textContent = "",
+  back = () => output.textContent = output.textContent.slice(0, -1),
+  checkLastChar = x => !operators.includes(output.textContent.substr(-1)) && output.textContent !== '' ? output.textContent += x : false;
 
 container.addEventListener("click", buttonClick);
 calculate.addEventListener("click", calc);
-clear.addEventListener("click", reset);
+clear.addEventListener("click", () => reset());
 document.addEventListener("keydown", keyPress);
-backBtn.addEventListener('click', back);
-
-function checkLastChar(text) {
-  !operators.includes(output.textContent.substr(-1)) && output.textContent !== '' ? output.textContent += text : false;
-}
-
-function reset() {
-  output.textContent = "";
-}
-
-function back() {
-  output.textContent = output.textContent.slice(0, -1);
-}
+backBtn.addEventListener('click', () => back());
 
 function buttonClick(e) {
   let btnText = e.target.textContent;
