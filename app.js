@@ -23,7 +23,7 @@ function checkLastChar(lastChar, text) {
 }
 
 function reset() {
-  output.innerText = "";
+  output.textContent = "";
 }
 
 function back() {
