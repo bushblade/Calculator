@@ -33,6 +33,7 @@ function keyPress(e) {
     !operators.includes(keyText) ? writeToOutput(keyText) : checkLastChar(keyText);
   } else if (e.keyCode === 13) {
     calculate.focus();
+    calculate.removeEventListener('click');
     calc();
   } else if (e.keyCode === 8) {
     backBtn.focus();
