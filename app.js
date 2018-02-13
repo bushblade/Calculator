@@ -32,8 +32,6 @@ function keyPress(e) {
     allBtns.forEach(x => keyText === x.textContent ? x.focus() : false);
     !operators.includes(keyText) ? writeToOutput(keyText) : checkLastChar(keyText);
   } else if (e.keyCode === 13) {
-    calculate.focus();
-    calculate.removeEventListener('click');
     calc();
   } else if (e.keyCode === 8) {
     backBtn.focus();
@@ -45,9 +43,11 @@ function keyPress(e) {
 }
 
 function calc() {
-  if (output.textContent.length > 0) {
+  let toCalc = String(output.textContent).replace('--', '- -');
+  if (toCalc.length > 0) {
     try {
-      output.textContent = `${Number(eval(output.textContent).toFixed(8))}`;
+      output.textContent = `${Number(eval(toCalc).toFixed(8))}`;
+      calculate.focus();
     } catch (err) {
       alert(err);
     }
