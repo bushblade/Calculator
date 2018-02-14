@@ -13,9 +13,9 @@ const output = document.getElementById("output"),
 
 container.addEventListener("click", buttonClick);
 calculate.addEventListener("click", calc);
-clear.addEventListener("click", () => reset());
+clear.addEventListener("click", reset);
 document.addEventListener("keydown", keyPress);
-backBtn.addEventListener('click', () => back());
+backBtn.addEventListener('click', back);
 
 function buttonClick(e) {
   let btnText = e.target.textContent;
