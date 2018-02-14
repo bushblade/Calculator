@@ -27,10 +27,9 @@ function buttonClick(e) {
 }
 
 function keyPress(e) {
-  let keyText = e.key;
   if (keyArray.includes(e.keyCode)) {
-    allBtns.forEach(x => keyText === x.textContent ? x.focus() : false);
-    !operators.includes(keyText) ? writeToOutput(keyText) : checkLastChar(keyText);
+    allBtns.forEach(x => e.key === x.textContent ? x.focus() : false);
+    !operators.includes(e.key) ? writeToOutput(e.key) : checkLastChar(e.key);
   } else if (e.keyCode === 13) {
     calc();
   } else if (e.keyCode === 8) {
