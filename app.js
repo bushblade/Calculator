@@ -20,7 +20,7 @@ backBtn.addEventListener('click', () => back());
 function buttonClick(e) {
   let btnText = e.target.textContent;
   if (e.target.classList.contains("is-primary")) {
-    !operators.includes(btnText) ? writeToOutput(btnText) : false;
+    writeToOutput(btnText);
   } else if (e.target.classList.contains("is-info")) {
     !operators.includes(btnText) ? writeToOutput(btnText) : checkLastChar(btnText);
   }
