@@ -5,7 +5,7 @@ const output = document.getElementById("output"),
   allBtns = Array.from(document.querySelectorAll('.button')),
   backBtn = document.getElementById('back'),
   operators = ['/', '*', '+'],
-  keyArray = [111, 106, 109, 103, 104, 105, 107, 100, 101, 102, 97, 98, 99, 96, 110],
+  // keyArray = [111, 106, 109, 103, 104, 105, 107, 100, 101, 102, 97, 98, 99, 96, 110],
   reset = () => output.textContent = "",
   back = () => output.textContent = output.textContent.slice(0, -1),
   checkLastChar = x => !operators.includes(output.textContent.substr(-1)) && output.textContent !== '' ? writeToOutput(x) : false,
@@ -27,7 +27,7 @@ function buttonClick(e) {
 }
 
 function keyPress(e) {
-  if (keyArray.includes(e.keyCode)) {
+  if (e.keyCode > 95 && e.keyCode  < 112) {
     allBtns.forEach(x => e.key === x.textContent ? x.focus() : false);
     !operators.includes(e.key) ? writeToOutput(e.key) : checkLastChar(e.key);
   } else if (e.keyCode === 13) {
