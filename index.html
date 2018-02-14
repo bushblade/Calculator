@@ -13,14 +13,13 @@
 <body>
   <div class="container hero is-black">
     <div class="hero-body" id="calc-wrapper">
-      <div class="columns is-mobile">
+      <div class="columns is-mobile is-multiline">
         <div class="column is-12">
           <div class="box is-size-2 is-size-3-mobile has-text-grey-dark">
             <span id="output"></span>
           </div>
         </div>
-      </div>
-      <div class="columns is-mobile">
+
         <div class="column is-3">
           <button class="button is-fullwidth is-large is-outlined is-primary">7</button>
         </div>
@@ -33,8 +32,7 @@
         <div class="column is-3">
           <button class="button is-fullwidth is-large is-outlined is-info">/</button>
         </div>
-      </div>
-      <div class="columns is-mobile">
+
         <div class="column is-3">
           <button class="button is-fullwidth is-large is-outlined is-primary">4</button>
         </div>
@@ -47,8 +45,7 @@
         <div class="column is-3">
           <button class="button is-fullwidth is-large is-outlined is-info">*</button>
         </div>
-      </div>
-      <div class="columns is-mobile">
+
         <div class="column is-3">
           <button class="button is-fullwidth is-large is-outlined is-primary">1</button>
         </div>
@@ -61,8 +58,7 @@
         <div class="column is-3">
           <button class="button is-fullwidth is-large is-outlined is-info">-</button>
         </div>
-      </div>
-      <div class="columns is-mobile">
+
         <div class="column is-3">
           <button class="button is-fullwidth is-large is-outlined is-warning" id="clear">AC</button>
         </div>
@@ -75,28 +71,30 @@
         <div class="column is-3">
           <button class="button is-fullwidth is-large is-outlined is-info">+</button>
         </div>
-      </div>
-      <div class="columns is-mobile">
+
         <div class="column is-3">
-          <button class="button is-fullwidth is-large is-outlined is-warning" id="back"><-</button>
+          <button class="button is-fullwidth is-large is-outlined is-warning" id="back">
+            <-</button>
         </div>
         <div class="column is-9">
           <button class="button is-fullwidth is-large is-outlined is-success" id="calculate">=</button>
         </div>
+
       </div>
     </div>
   </div>
-  
+
   <div class="container">
     <div class="columns has-text-grey has-text-centered is-uppercase is-size-6 has-text-weight-light">
       <div class="column is-one-third">ESC key = AC</div>
-      <div class="column is-one-third">Backspace = <-</div>
-      <div class="column is-one-third">NumPad support</div>
-    </div>        
-    <br>
-  </div>
+      <div class="column is-one-third">Backspace =
+        <-</div>
+          <div class="column is-one-third">NumPad support</div>
+      </div>
+      <br>
+    </div>
 
-  <script src="app.js"></script>
+    <script src="app.js"></script>
 </body>
 
 </html>
