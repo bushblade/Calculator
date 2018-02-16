@@ -26,7 +26,7 @@ function buttonClick(e) {
 }
 
 function keyPress(e) {
-  if (e.keyCode > 95 && e.keyCode  < 112) {
+  if (allBtns.map(x => x.textContent).filter(y => y !== '=').includes(e.key)) {
     allBtns.forEach(x => e.key === x.textContent ? x.focus() : false);
     !operators.includes(e.key) ? writeToOutput(e.key) : checkLastChar(e.key);
   } else if (e.keyCode === 13) {
