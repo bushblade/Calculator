@@ -2,6 +2,4 @@
 
 project uses Bulma css framework https://bulma.io/
 
-needs fixing:-
-
-* Should be able to use negative numbers in calculation
+Hosted live example at http://www.bushbladeprojects.co.uk/calculator/
