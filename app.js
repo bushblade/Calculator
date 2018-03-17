@@ -45,7 +45,7 @@ function calc() {
       output.textContent = `${Number(eval(toCalc).toFixed(8))}`
       calculate.focus()
     } catch (err) {
-      alert(err)
+      alert(err.message)
     }
   } else {
     alert('Nothing entered')
